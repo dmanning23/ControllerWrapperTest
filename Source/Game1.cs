@@ -49,7 +49,7 @@ namespace ControllerWrapperTest
 		/// </summary>
 		private PlayerIndex _player = PlayerIndex.One;
 
-		private ThumbstickType _thumbstick = ThumbstickType.Scrubbed;
+		private DeadZoneType _thumbstick = DeadZoneType.Axial;
 
 		private bool _flipped = false;
 
@@ -63,7 +63,7 @@ namespace ControllerWrapperTest
 			Content.RootDirectory = "Content";
 			graphics.PreferredBackBufferWidth = 1024;
 			graphics.PreferredBackBufferHeight = 768;
-			graphics.IsFullScreen = true;
+			graphics.IsFullScreen = false;
 
 			_controller = new ControllerWrapper(PlayerIndex.One);
 			_ButtonTimer = new CountdownTimer[(int)EKeystroke.RTriggerRelease + 1];
@@ -131,34 +131,26 @@ namespace ControllerWrapperTest
 			if (CheckKeyDown(m_Input, Keys.D1))
 			{
 				_player = PlayerIndex.One;
-				_controller = new ControllerWrapper(_player)
-				{
-					ThumbstickScrubbing = _thumbstick
-				};
+				_controller = new ControllerWrapper(_player);
+				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 			else if (CheckKeyDown(m_Input, Keys.D2))
 			{
 				_player = PlayerIndex.Two;
-				_controller = new ControllerWrapper(_player)
-				{
-					ThumbstickScrubbing = _thumbstick
-				};
+				_controller = new ControllerWrapper(_player);
+				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 			else if (CheckKeyDown(m_Input, Keys.D3))
 			{
 				_player = PlayerIndex.Three;
-				_controller = new ControllerWrapper(_player)
-				{
-					ThumbstickScrubbing = _thumbstick
-				};
+				_controller = new ControllerWrapper(_player);
+				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 			else if (CheckKeyDown(m_Input, Keys.D4))
 			{
 				_player = PlayerIndex.Four;
-				_controller = new ControllerWrapper(_player)
-				{
-					ThumbstickScrubbing = _thumbstick
-				};
+				_controller = new ControllerWrapper(_player);
+				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 
 			//check if the player wants to face a different direction
@@ -170,8 +162,12 @@ namespace ControllerWrapperTest
 			//check if the player wants to switch between scrubbed/powercurve
 			if (CheckKeyDown(m_Input, Keys.W))
 			{
-				_thumbstick = ((ThumbstickType.Scrubbed == _thumbstick) ? ThumbstickType.PowerCurve : ThumbstickType.Scrubbed);
-				_controller.ThumbstickScrubbing = _thumbstick;
+				_thumbstick++;
+				if (_thumbstick > DeadZoneType.PowerCurve)
+				{
+					_thumbstick = DeadZoneType.Axial;
+				}
+				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 
 			base.Update(gameTime);
@@ -220,7 +216,7 @@ namespace ControllerWrapperTest
 
 			//write the raw thumbstick direction
 			position.X = _text.Write("direction: ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.X = _text.Write(_controller.LeftThumbstickDirection.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			position.X = _text.Write(_controller.Thumbsticks.LeftThumbstickDirection.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
 
 			spriteBatch.End();
 
