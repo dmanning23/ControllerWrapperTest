@@ -97,7 +97,11 @@ namespace ControllerWrapperTest
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// TODO: use this.Content to load your game content here
+#if OUYA
+			_text.LoadContent(Content, "ArialBlack14");
+#else
 			_text.LoadContent(Content, "ArialBlack10");
+#endif
 		}
 
 		/// <summary>
