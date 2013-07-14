@@ -60,6 +60,7 @@ namespace ControllerWrapperTest
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
+			graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
 			Content.RootDirectory = "Content";
 			graphics.PreferredBackBufferWidth = 1024;
 			graphics.PreferredBackBufferHeight = 768;
