@@ -66,7 +66,7 @@ namespace ControllerWrapperTest
 			graphics.PreferredBackBufferHeight = 768;
 			graphics.IsFullScreen = false;
 
-			_controller = new ControllerWrapper(PlayerIndex.One);
+			_controller = new ControllerWrapper(PlayerIndex.One, true);
 			_ButtonTimer = new CountdownTimer[(int)EKeystroke.RTriggerRelease + 1];
 
 			for (int i = 0; i < ((int)EKeystroke.RTriggerRelease + 1); i++)
@@ -123,7 +123,7 @@ namespace ControllerWrapperTest
 		{
 			// Allows the game to exit
 			if ((GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) ||
-				Keyboard.GetState(PlayerIndex.One).IsKeyDown(Keys.Escape))
+				Keyboard.GetState().IsKeyDown(Keys.Escape))
 			{
 				this.Exit();
 			}
@@ -192,6 +192,14 @@ namespace ControllerWrapperTest
 			
 			//say what controller we are checking
 			_text.Write("Controller Index: " + _player.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			position.Y += _text.Font.MeasureString("test").Y;
+
+//			//is the controller plugged in?
+//			_text.Write("Controller Plugged In: " + _controller.ControllerPluggedIn.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+//			position.Y += _text.Font.MeasureString("test").Y;
+
+			//are we using the keyboard?
+			_text.Write("Use Keyboard: " + _controller.UseKeyboard.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
 			position.Y += _text.Font.MeasureString("test").Y;
 
 			//say what type of thumbstick scrubbing we are doing
