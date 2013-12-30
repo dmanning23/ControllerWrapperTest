@@ -237,7 +237,7 @@ namespace ControllerWrapperTest
 		/// <returns>bool: key was pressed this update</returns>
 		private bool CheckKeyDown(InputState rInputState, Keys myKey)
 		{
-			return (rInputState.m_CurrentKeyboardStates[0].IsKeyDown(myKey) && rInputState.m_LastKeyboardStates[0].IsKeyUp(myKey));
+			return (rInputState.CurrentKeyboardState.IsKeyDown(myKey) && rInputState.LastKeyboardState.IsKeyUp(myKey));
 		}
 
 		#endregion //Methods
