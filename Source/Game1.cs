@@ -194,9 +194,9 @@ namespace ControllerWrapperTest
 			_text.Write("Controller Index: " + _player.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
 			position.Y += _text.Font.MeasureString("test").Y;
 
-//			//is the controller plugged in?
-//			_text.Write("Controller Plugged In: " + _controller.ControllerPluggedIn.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
-//			position.Y += _text.Font.MeasureString("test").Y;
+			//is the controller plugged in?
+			_text.Write("Controller Plugged In: " + _controller.ControllerPluggedIn.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			position.Y += _text.Font.MeasureString("test").Y;
 
 			//are we using the keyboard?
 			_text.Write("Use Keyboard: " + _controller.UseKeyboard.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
@@ -229,7 +229,7 @@ namespace ControllerWrapperTest
 
 			//write the raw thumbstick direction
 			position.X = _text.Write("direction: ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.X = _text.Write(_controller.Thumbsticks.LeftThumbstickDirection.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			position.X = _text.Write(_controller.Thumbsticks.LeftThumbstick.Direction.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
 
 			spriteBatch.End();
 
