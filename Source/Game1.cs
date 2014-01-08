@@ -233,7 +233,7 @@ namespace ControllerWrapperTest
 			position.X = 256.0f;
 
 			//draw the current released state of each keystroke
-			for (int i = (int)EKeystroke.UpRelease; i <= ((int)EKeystroke.BackReleaseR); i++)
+			for (int i = (int)EKeystroke.UpRelease; i <= ((int)EKeystroke.NeutralR); i++)
 			{
 				//Write the name of the button
 				position.X = _text.Write(((EKeystroke)i).ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
