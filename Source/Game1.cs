@@ -208,7 +208,8 @@ namespace ControllerWrapperTest
 
 			//what direction is the player facing
 			_text.Write("Player is facing: " + (_flipped ? "left" : "right"), position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.Y += _text.Font.LineSpacing;
+			position.Y += (_text.Font.LineSpacing * 2.0f);
+			float buttonPos = position.Y;
 
 			//draw the current pressed state of each keystroke
 			for (int i = 0; i <= ((int)EKeystroke.BackR); i++)
@@ -228,7 +229,7 @@ namespace ControllerWrapperTest
 			}
 
 			//reset position
-			position.Y = 0.0f;
+			position.Y = buttonPos;
 			position.X = 256.0f;
 
 			//draw the current released state of each keystroke
