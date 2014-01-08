@@ -192,26 +192,26 @@ namespace ControllerWrapperTest
 			
 			//say what controller we are checking
 			_text.Write("Controller Index: " + _player.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.Y += _text.Font.MeasureString("test").Y;
+			position.Y += _text.Font.LineSpacing;
 
 			//is the controller plugged in?
 			_text.Write("Controller Plugged In: " + _controller.ControllerPluggedIn.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.Y += _text.Font.MeasureString("test").Y;
+			position.Y += _text.Font.LineSpacing;
 
 			//are we using the keyboard?
 			_text.Write("Use Keyboard: " + _controller.UseKeyboard.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.Y += _text.Font.MeasureString("test").Y;
+			position.Y += _text.Font.LineSpacing;
 
 			//say what type of thumbstick scrubbing we are doing
 			_text.Write("Thumbstick type: " + _thumbstick.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.Y += _text.Font.MeasureString("test").Y;
+			position.Y += _text.Font.LineSpacing;
 
 			//what direction is the player facing
 			_text.Write("Player is facing: " + (_flipped ? "left" : "right"), position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.Y += _text.Font.MeasureString("test").Y;
+			position.Y += _text.Font.LineSpacing;
 
-			//draw the current state of each keystroke
-			for (int i = 0; i < ((int)EKeystroke.RTriggerRelease + 1); i++)
+			//draw the current pressed state of each keystroke
+			for (int i = 0; i <= ((int)EKeystroke.BackR); i++)
 			{
 				//Write the name of the button
 				position.X = _text.Write(((EKeystroke)i).ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
@@ -223,8 +223,29 @@ namespace ControllerWrapperTest
 				}
 
 				//move the position to the next line
-				position.Y += _text.Font.MeasureString(((EKeystroke)i).ToString()).Y;
+				position.Y += _text.Font.LineSpacing;
 				position.X = 0.0f;
+			}
+
+			//reset position
+			position.Y = 0.0f;
+			position.X = 256.0f;
+
+			//draw the current released state of each keystroke
+			for (int i = (int)EKeystroke.UpRelease; i <= ((int)EKeystroke.BackReleaseR); i++)
+			{
+				//Write the name of the button
+				position.X = _text.Write(((EKeystroke)i).ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+
+				//is the button currently active
+				if (_controller.CheckKeystroke((EKeystroke)i, _flipped))
+				{
+					position.X = _text.Write("held ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+				}
+
+				//move the position to the next line
+				position.Y += _text.Font.LineSpacing;
+				position.X = 256.0f;
 			}
 
 			//write the raw thumbstick direction
