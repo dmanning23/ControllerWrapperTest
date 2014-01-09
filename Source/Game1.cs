@@ -212,15 +212,20 @@ namespace ControllerWrapperTest
 			float buttonPos = position.Y;
 
 			//draw the current pressed state of each keystroke
-			for (int i = 0; i <= ((int)EKeystroke.BackR); i++)
+			for (EKeystroke i = 0; i <= EKeystroke.RTrigger; i++)
 			{
 				//Write the name of the button
-				position.X = _text.Write(((EKeystroke)i).ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+				position.X = _text.Write(i.ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
 
 				//is the button currently active
-				if (_controller.CheckKeystroke((EKeystroke)i, _flipped))
+				if (_controller.CheckKeystroke(i, _flipped, (_flipped ? new Vector2(-1.0f, 0.0f) : new Vector2(1.0f, 0.0f))))
 				{
 					position.X = _text.Write("held ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+				}
+
+				if (EKeystroke.A == i)
+				{
+					buttonPos = position.Y;
 				}
 
 				//move the position to the next line
@@ -233,13 +238,13 @@ namespace ControllerWrapperTest
 			position.X = 256.0f;
 
 			//draw the current released state of each keystroke
-			for (int i = (int)EKeystroke.UpRelease; i <= ((int)EKeystroke.NeutralR); i++)
+			for (EKeystroke i = EKeystroke.ARelease; i <= EKeystroke.RTriggerRelease; i++)
 			{
 				//Write the name of the button
-				position.X = _text.Write(((EKeystroke)i).ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+				position.X = _text.Write(i.ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
 
 				//is the button currently active
-				if (_controller.CheckKeystroke((EKeystroke)i, _flipped))
+				if (_controller.CheckKeystroke(i, _flipped, (_flipped ? new Vector2(-1.0f, 0.0f) : new Vector2(1.0f, 0.0f))))
 				{
 					position.X = _text.Write("held ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
 				}
