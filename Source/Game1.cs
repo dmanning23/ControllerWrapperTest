@@ -1,16 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using FontBuddyLib;
 using GameTimer;
 using HadoukInput;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace ControllerWrapperTest
 {
@@ -49,8 +42,6 @@ namespace ControllerWrapperTest
 		/// </summary>
 		private PlayerIndex _player = PlayerIndex.One;
 
-		private DeadZoneType _thumbstick = DeadZoneType.Axial;
-
 		private bool _flipped = false;
 
 		#endregion //Members
@@ -73,19 +64,6 @@ namespace ControllerWrapperTest
 			{
 				_ButtonTimer[i] = new CountdownTimer();
 			}
-		}
-
-		/// <summary>
-		/// Allows the game to perform any initialization it needs to before starting to run.
-		/// This is where it can query for any required services and load any non-graphic
-		/// related content.  Calling base.Initialize will enumerate through any components
-		/// and initialize them as well.
-		/// </summary>
-		protected override void Initialize()
-		{
-			// TODO: Add your initialization logic here
-
-			base.Initialize();
 		}
 
 		/// <summary>
@@ -137,25 +115,21 @@ namespace ControllerWrapperTest
 			{
 				_player = PlayerIndex.One;
 				_controller = new ControllerWrapper(_player);
-				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 			else if (CheckKeyDown(m_Input, Keys.D2))
 			{
 				_player = PlayerIndex.Two;
 				_controller = new ControllerWrapper(_player);
-				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 			else if (CheckKeyDown(m_Input, Keys.D3))
 			{
 				_player = PlayerIndex.Three;
 				_controller = new ControllerWrapper(_player);
-				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 			else if (CheckKeyDown(m_Input, Keys.D4))
 			{
 				_player = PlayerIndex.Four;
 				_controller = new ControllerWrapper(_player);
-				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
 			}
 
 			//check if the player wants to face a different direction
@@ -167,12 +141,13 @@ namespace ControllerWrapperTest
 			//check if the player wants to switch between scrubbed/powercurve
 			if (CheckKeyDown(m_Input, Keys.W))
 			{
-				_thumbstick++;
-				if (_thumbstick > DeadZoneType.PowerCurve)
+				DeadZoneType thumbstick = _controller.Thumbsticks.ThumbstickScrubbing;
+				thumbstick++;
+				if (thumbstick > DeadZoneType.PowerCurve)
 				{
-					_thumbstick = DeadZoneType.Axial;
+					thumbstick = DeadZoneType.Axial;
 				}
-				_controller.Thumbsticks.ThumbstickScrubbing = _thumbstick;
+				_controller.Thumbsticks.ThumbstickScrubbing = thumbstick;
 			}
 
 			base.Update(gameTime);
@@ -203,7 +178,7 @@ namespace ControllerWrapperTest
 			position.Y += _text.Font.LineSpacing;
 
 			//say what type of thumbstick scrubbing we are doing
-			_text.Write("Thumbstick type: " + _thumbstick.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			_text.Write("Thumbstick type: " + _controller.Thumbsticks.ThumbstickScrubbing.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
 			position.Y += _text.Font.LineSpacing;
 
 			//what direction is the player facing
