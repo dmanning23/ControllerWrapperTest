@@ -44,6 +44,8 @@ namespace ControllerWrapperTest
 
 		private bool _flipped = false;
 
+		GameClock _time;
+
 		#endregion //Members
 
 		#region Methods
@@ -59,6 +61,7 @@ namespace ControllerWrapperTest
 
 			_controller = new ControllerWrapper(PlayerIndex.One, true);
 			_ButtonTimer = new CountdownTimer[(int)EKeystroke.RTriggerRelease + 1];
+			_time = new GameClock();
 
 			for (int i = 0; i < ((int)EKeystroke.RTriggerRelease + 1); i++)
 			{
@@ -107,6 +110,7 @@ namespace ControllerWrapperTest
 			}
 
 			//Update the controller
+			_time.Update(gameTime);
 			m_Input.Update();
 			_controller.Update(m_Input);
 
@@ -166,23 +170,23 @@ namespace ControllerWrapperTest
 			Vector2 position = new Vector2(graphics.GraphicsDevice.Viewport.TitleSafeArea.Left, graphics.GraphicsDevice.Viewport.TitleSafeArea.Top);
 			
 			//say what controller we are checking
-			_text.Write("Controller Index: " + _player.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			_text.Write("Controller Index: " + _player.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 			position.Y += _text.Font.LineSpacing;
 
 			//is the controller plugged in?
-			_text.Write("Controller Plugged In: " + _controller.ControllerPluggedIn.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			_text.Write("Controller Plugged In: " + _controller.ControllerPluggedIn.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 			position.Y += _text.Font.LineSpacing;
 
 			//are we using the keyboard?
-			_text.Write("Use Keyboard: " + _controller.UseKeyboard.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			_text.Write("Use Keyboard: " + _controller.UseKeyboard.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 			position.Y += _text.Font.LineSpacing;
 
 			//say what type of thumbstick scrubbing we are doing
-			_text.Write("Thumbstick type: " + _controller.Thumbsticks.ThumbstickScrubbing.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			_text.Write("Thumbstick type: " + _controller.Thumbsticks.ThumbstickScrubbing.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 			position.Y += _text.Font.LineSpacing;
 
 			//what direction is the player facing
-			_text.Write("Player is facing: " + (_flipped ? "left" : "right"), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			_text.Write("Player is facing: " + (_flipped ? "left" : "right"), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 			position.Y += (_text.Font.LineSpacing * 2.0f);
 
 			float buttonPos = position.Y;
@@ -191,12 +195,12 @@ namespace ControllerWrapperTest
 			for (EKeystroke i = 0; i <= EKeystroke.RTrigger; i++)
 			{
 				//Write the name of the button
-				position.X = _text.Write(i.ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+				position.X = _text.Write(i.ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 
 				//is the button currently active
 				if (_controller.CheckKeystroke(i, _flipped, (_flipped ? new Vector2(-1.0f, 0.0f) : new Vector2(1.0f, 0.0f))))
 				{
-					position.X = _text.Write("held ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+					position.X = _text.Write("held ", position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 				}
 
 				if (EKeystroke.A == i)
@@ -217,12 +221,12 @@ namespace ControllerWrapperTest
 			for (EKeystroke i = EKeystroke.ARelease; i <= EKeystroke.RTriggerRelease; i++)
 			{
 				//Write the name of the button
-				position.X = _text.Write(i.ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+				position.X = _text.Write(i.ToString() + ": ", position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 
 				//is the button currently active
 				if (_controller.CheckKeystroke(i, _flipped, (_flipped ? new Vector2(-1.0f, 0.0f) : new Vector2(1.0f, 0.0f))))
 				{
-					position.X = _text.Write("held ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
+					position.X = _text.Write("held ", position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 				}
 
 				//move the position to the next line
@@ -231,8 +235,8 @@ namespace ControllerWrapperTest
 			}
 
 			//write the raw thumbstick direction
-			position.X = _text.Write("direction: ", position, Justify.Left, 1.0f, Color.White, spriteBatch);
-			position.X = _text.Write(_controller.Thumbsticks.LeftThumbstick.Direction.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch);
+			position.X = _text.Write("direction: ", position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
+			position.X = _text.Write(_controller.Thumbsticks.LeftThumbstick.Direction.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
 
 			spriteBatch.End();
 

@@ -22,3 +22,6 @@
 [submodule "externals/MatrixExtensions"]
 	path = externals/MatrixExtensions
 	url = git@github.com:dmanning23/MatrixExtensions.git
+[submodule "externals/XmlBuddy"]
+	path = externals/XmlBuddy
+	url = git@github.com:dmanning23/XmlBuddy.git
