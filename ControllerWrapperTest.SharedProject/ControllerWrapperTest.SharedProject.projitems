@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0d5298ee-44b0-4692-9446-e1d9c7015553</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ControllerWrapperTest.SharedProject</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+  </ItemGroup>
+</Project>
