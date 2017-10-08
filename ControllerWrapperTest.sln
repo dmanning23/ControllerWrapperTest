@@ -11,10 +11,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerWrapperTest.Windo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74138DD7-E56F-49F8-A3B3-0E1F1BD64827}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerWrapperTest.Android", "ControllerWrapperTest.Android\ControllerWrapperTest.Android.csproj", "{0608D7E9-235C-4399-BB81-B08A384FC5E0}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HadoukInput.SharedProject", "..\HadoukInput\HadoukInput\HadoukInput.SharedProject\HadoukInput.SharedProject.shproj", "{71A30BBC-91F3-43A9-BE36-BDA5AE30772C}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ControllerWrapperTest.SharedProject\ControllerWrapperTest.SharedProject.projitems*{0608d7e9-235c-4399-bb81-b08a384fc5e0}*SharedItemsImports = 4
+		..\HadoukInput\HadoukInput\HadoukInput.SharedProject\HadoukInput.SharedProject.projitems*{0608d7e9-235c-4399-bb81-b08a384fc5e0}*SharedItemsImports = 4
 		ControllerWrapperTest.SharedProject\ControllerWrapperTest.SharedProject.projitems*{0d5298ee-44b0-4692-9446-e1d9c7015553}*SharedItemsImports = 13
 		ControllerWrapperTest.SharedProject\ControllerWrapperTest.SharedProject.projitems*{6e7e516a-9d4c-49b0-bdbc-8cea72fb11dd}*SharedItemsImports = 4
+		..\HadoukInput\HadoukInput\HadoukInput.SharedProject\HadoukInput.SharedProject.projitems*{71a30bbc-91f3-43a9-be36-bda5ae30772c}*SharedItemsImports = 13
 		ControllerWrapperTest.SharedProject\ControllerWrapperTest.SharedProject.projitems*{f7ea3d99-1a31-4cb3-b78c-e2af7915eef9}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +90,42 @@ Global
 		{F7EA3D99-1A31-4CB3-B78C-E2AF7915EEF9}.Release|x86.ActiveCfg = Release|x86
 		{F7EA3D99-1A31-4CB3-B78C-E2AF7915EEF9}.Release|x86.Build.0 = Release|x86
 		{F7EA3D99-1A31-4CB3-B78C-E2AF7915EEF9}.Release|x86.Deploy.0 = Release|x86
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|Any CPU.Deploy.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|ARM.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|ARM.Deploy.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|x64.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|x64.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|x64.Deploy.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|x86.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.AppStore|x86.Deploy.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|ARM.Build.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|x64.Build.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|x86.Build.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|ARM.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|ARM.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|ARM.Deploy.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|x64.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|x64.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|x64.Deploy.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|x86.ActiveCfg = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|x86.Build.0 = Release|Any CPU
+		{0608D7E9-235C-4399-BB81-B08A384FC5E0}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

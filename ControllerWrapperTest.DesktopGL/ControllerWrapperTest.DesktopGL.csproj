@@ -48,11 +48,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FontBuddyLib.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontBuddy.1.0.11\lib\net451\FontBuddyLib.DesktopGL.dll</HintPath>
+      <HintPath>..\packages\FontBuddy.1.0.18\lib\net451\FontBuddyLib.DesktopGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GameTimer.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GameTimer.1.0.1\lib\net452\GameTimer.DesktopGL.dll</HintPath>
+      <HintPath>..\packages\GameTimer.1.0.2\lib\net452\GameTimer.DesktopGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HadoukInput.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -80,17 +80,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ResolutionBuddy.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ResolutionBuddy.1.0.4\lib\net451\ResolutionBuddy.DesktopGL.dll</HintPath>
+      <HintPath>..\packages\ResolutionBuddy.1.0.8\lib\net451\ResolutionBuddy.DesktopGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="Vector2Extensions.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Vector2Extensions.1.0.6\lib\net451\Vector2Extensions.DesktopGL.dll</HintPath>
+      <HintPath>..\packages\Vector2Extensions.1.0.8\lib\net451\Vector2Extensions.DesktopGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="XmlBuddy.DesktopGL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XmlBuddy.1.0.13\lib\net451\XmlBuddy.DesktopGL.dll</HintPath>
+      <HintPath>..\packages\XmlBuddy.1.0.14\lib\net451\XmlBuddy.DesktopGL.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -99,7 +99,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack10.xnb" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack14.xnb" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack24.xnb" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack36.xnb" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack48.xnb" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack48Spanish.xnb" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack72.xnb" />
+    <None Include="Content\bin\DesktopGL\Fonts\ArialBlack96.xnb" />
+    <None Include="Content\obj\DesktopGL\.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack10.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack14.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack24.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack36.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack48.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack48Spanish.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack72.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Fonts\ArialBlack96.mgcontent" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\XmlBuddy.Content.dll" />
   </ItemGroup>
   <Import Project="..\ControllerWrapperTest.SharedProject\ControllerWrapperTest.SharedProject.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

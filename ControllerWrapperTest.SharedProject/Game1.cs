@@ -47,6 +47,8 @@ namespace ControllerWrapperTest
 
 		GameClock _time;
 
+		ResolutionComponent _resolution;
+
 		#endregion //Members
 
 		#region Methods
@@ -57,7 +59,7 @@ namespace ControllerWrapperTest
 			graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
 			Content.RootDirectory = "Content";
 
-			Resolution.Init(graphics);
+			_resolution = new ResolutionComponent(this, graphics, new Point(1280, 720), new Point(1280, 720), false, true);
 
 			_controller = new ControllerWrapper(PlayerIndex.One, true);
 			_ButtonTimer = new CountdownTimer[(int)EKeystroke.RTriggerRelease + 1];
@@ -67,14 +69,6 @@ namespace ControllerWrapperTest
 			{
 				_ButtonTimer[i] = new CountdownTimer();
 			}
-		}
-
-		protected override void Initialize()
-		{
-			Resolution.SetDesiredResolution(1280, 720);
-			Resolution.SetScreenResolution(1280, 720, true);
-
-			base.Initialize();
 		}
 
 		/// <summary>
@@ -169,9 +163,6 @@ namespace ControllerWrapperTest
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
-
-			// Calculate Proper Viewport according to Aspect Ratio
-			Resolution.ResetViewport();
 
 			spriteBatch.Begin(SpriteSortMode.Immediate,
 							  BlendState.AlphaBlend,
