@@ -32,6 +32,8 @@ namespace ControllerWrapperTest.Android
 			global::FontBuddyLib.Android.Resource.String.Hello = global::ControllerWrapperTest.Android.Resource.String.Hello;
 			global::GameTimer.Android.Resource.String.ApplicationName = global::ControllerWrapperTest.Android.Resource.String.ApplicationName;
 			global::GameTimer.Android.Resource.String.Hello = global::ControllerWrapperTest.Android.Resource.String.Hello;
+			global::HadoukInput.Android.Resource.String.ApplicationName = global::ControllerWrapperTest.Android.Resource.String.ApplicationName;
+			global::HadoukInput.Android.Resource.String.Hello = global::ControllerWrapperTest.Android.Resource.String.Hello;
 			global::MatrixExtensions.Android.Resource.String.ApplicationName = global::ControllerWrapperTest.Android.Resource.String.ApplicationName;
 			global::MatrixExtensions.Android.Resource.String.Hello = global::ControllerWrapperTest.Android.Resource.String.Hello;
 			global::RandomExtensions.Android.Resource.String.ApplicationName = global::ControllerWrapperTest.Android.Resource.String.ApplicationName;
