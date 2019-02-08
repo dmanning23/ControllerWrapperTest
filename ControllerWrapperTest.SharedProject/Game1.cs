@@ -58,7 +58,7 @@ namespace ControllerWrapperTest
 			_resolution = new ResolutionComponent(this, graphics, new Point(1280, 720), new Point(1280, 720), false, true);
 
 			Controllers = new List<ControllerWrapper>();
-			Controllers.Add(new ControllerWrapper(PlayerIndex.One, false));
+			Controllers.Add(new ControllerWrapper(PlayerIndex.One, true));
 			Controllers.Add(new ControllerWrapper(PlayerIndex.Two, false));
 			Controllers.Add(new ControllerWrapper(PlayerIndex.Three, false));
 			Controllers.Add(new ControllerWrapper(PlayerIndex.Four, false));
