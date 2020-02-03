@@ -15,7 +15,7 @@ namespace ControllerWrapperTest
 	/// checks the forward/back is being checked correctly
 	/// checks that the scrubbed/powercurve is working correctly
 	/// </summary>
-	public class Game1 : Microsoft.Xna.Framework.Game
+	public class Game1 : Game
 	{
 		#region Members
 
@@ -58,10 +58,10 @@ namespace ControllerWrapperTest
 			_resolution = new ResolutionComponent(this, graphics, new Point(1280, 720), new Point(1280, 720), false, true);
 
 			Controllers = new List<ControllerWrapper>();
-			Controllers.Add(new ControllerWrapper(PlayerIndex.One, true));
-			Controllers.Add(new ControllerWrapper(PlayerIndex.Two, false));
-			Controllers.Add(new ControllerWrapper(PlayerIndex.Three, false));
-			Controllers.Add(new ControllerWrapper(PlayerIndex.Four, false));
+			Controllers.Add(new ControllerWrapper(0, true));
+			Controllers.Add(new ControllerWrapper(1, true));
+			Controllers.Add(new ControllerWrapper(2, true));
+			Controllers.Add(new ControllerWrapper(3, true));
 
 			_ButtonTimer = new CountdownTimer[(int)EKeystroke.RTriggerRelease + 1];
 			_time = new GameClock();
@@ -169,25 +169,27 @@ namespace ControllerWrapperTest
 		{
 			var startPosition = position;
 
+			var size = _text.MeasureString("Ip").Y;
+
 			//say what controller we are checking
 			_text.Write("Controller Index: " + controller.GamePadIndex.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
-			position.Y += _text.Font.LineSpacing;
+			position.Y += size;
 
 			//is the controller plugged in?
 			_text.Write("Controller Plugged In: " + controller.ControllerPluggedIn.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
-			position.Y += _text.Font.LineSpacing;
+			position.Y += size;
 
 			//are we using the keyboard?
 			_text.Write("Use Keyboard: " + controller.UseKeyboard.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
-			position.Y += _text.Font.LineSpacing;
+			position.Y += size;
 
 			//say what type of thumbstick scrubbing we are doing
 			_text.Write("Thumbstick type: " + controller.Thumbsticks.ThumbstickScrubbing.ToString(), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
-			position.Y += _text.Font.LineSpacing;
+			position.Y += size;
 
 			//what direction is the player facing
 			_text.Write("Player is facing: " + (_flipped ? "left" : "right"), position, Justify.Left, 1.0f, Color.White, spriteBatch, _time);
-			position.Y += (_text.Font.LineSpacing * 2.0f);
+			position.Y += (size * 2.0f);
 
 			float buttonPos = position.Y;
 
@@ -209,7 +211,7 @@ namespace ControllerWrapperTest
 				}
 
 				//move the position to the next line
-				position.Y += _text.Font.LineSpacing;
+				position.Y += size;
 				position.X = startPosition.X;
 			}
 
@@ -230,7 +232,7 @@ namespace ControllerWrapperTest
 				}
 
 				//move the position to the next line
-				position.Y += _text.Font.LineSpacing;
+				position.Y += size;
 				position.X = startPosition.X + 150f;
 			}
 
