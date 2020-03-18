@@ -57,11 +57,16 @@ namespace ControllerWrapperTest
 
 			_resolution = new ResolutionComponent(this, graphics, new Point(1280, 720), new Point(1280, 720), false, true);
 
+			for (var i = 0; i < Mappings.UseKeyboard.Count; i++)
+			{
+				Mappings.UseKeyboard[i] = true;
+			}
+
 			Controllers = new List<ControllerWrapper>();
-			Controllers.Add(new ControllerWrapper(0, true));
-			Controllers.Add(new ControllerWrapper(1, true));
-			Controllers.Add(new ControllerWrapper(2, true));
-			Controllers.Add(new ControllerWrapper(3, true));
+			Controllers.Add(new ControllerWrapper(0));
+			Controllers.Add(new ControllerWrapper(1));
+			Controllers.Add(new ControllerWrapper(2));
+			Controllers.Add(new ControllerWrapper(3));
 
 			_ButtonTimer = new CountdownTimer[(int)EKeystroke.RTriggerRelease + 1];
 			_time = new GameClock();
