@@ -60,6 +60,7 @@ namespace ControllerWrapperTest
 			for (var i = 0; i < Mappings.UseKeyboard.Count; i++)
 			{
 				Mappings.UseKeyboard[i] = true;
+				Mappings.UseIpacMappings(i);
 			}
 
 			Controllers = new List<ControllerWrapper>();
